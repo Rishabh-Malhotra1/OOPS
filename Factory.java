@@ -1,10 +1,3 @@
-
-/*
-Online Java - IDE, Code Editor, Compiler
-
-Online Java is a quick and easy tool that helps you to build, compile, test your programs online.
-*/
-
 public class Factory
 {
     public static void main(String[] args) {
@@ -19,10 +12,10 @@ public class Factory
         bike.move(21);
         boat.move(12);
         car.Stop(0,false,true);
-    } 
+    }
 }
 
-class Vehicle{
+abstract class Vehicle{
     private String manufacturer;
     private String engine;
     int wheels;
@@ -34,16 +27,15 @@ class Vehicle{
         sparkplug = true;
         brake = true;
     }
-    private void engineRun(){
-        
-    }
+    abstract  void engineRun();
+
     public void move(){
         brake = false;
         sparkplug = true;
         speed = 10;
         System.out.println("Vehicle is moving");
     }
-    
+
     public Vehicle(){
         sparkplug = false;
         speed = 0;
@@ -57,7 +49,7 @@ class Car extends Vehicle{
         wheels = 0;
         headlights = 0;
     }
-    private void engineRun(){}
+    void engineRun(){}
     public void Stop(int speed,boolean sparkplug,boolean brake){
         //Stop by assigning values through parameters
         System.out.println("Car is stopped");
@@ -65,7 +57,7 @@ class Car extends Vehicle{
     public void setCompany(){
         company = "Aston Martin";
     }
-    
+
     public void move(int speed){
         brake = false;
         sparkplug = true;
@@ -74,7 +66,7 @@ class Car extends Vehicle{
     }
 }
 class Bike extends Vehicle{
-    private void engineRun(){}
+    void engineRun(){}
     public Bike(int headlights,int wheels){
         this.headlights = headlights;
         this.wheels = wheels;
@@ -103,7 +95,7 @@ class Boat extends Vehicle{
         wheels = 0;
         headlights = 0;
     }
-    private void engineRun(){}
+    void engineRun(){}
     private String company;
     private String fuel;
     public void Stop(int speed,boolean sparkplug,boolean breake){
@@ -120,6 +112,6 @@ class Boat extends Vehicle{
         System.out.println(company+" is moving with a speed of "+speed);
     }
     public void setFuel(){
-        
+
     }
 }
